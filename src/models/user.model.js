@@ -1,25 +1,28 @@
 import mongoose from "mongoose";
 
-'   fazt           '
+("   fazt           ");
 
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema(
+  {
     username: {
-        type : String,
-        required: false,
-        trim: true, // remove spaces
+      type: String,
+      required: false,
+      trim: true, // remove spaces
     },
-    email:{
-        type : String,
-        required: true,
-        trim: true, 
-        unique: true,
+    email: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: true,
     },
-    password:{
-        type : String,
-        required: true,
+    password: {
+      type: String,
+      required: true,
     },
-}, {
-    timestamps: true
-}) 
+  },
+  {
+    timestamps: true,
+  }
+);
 
-export default mongoose.model('User', userSchema);
+export default mongoose.model("User", userSchema);
