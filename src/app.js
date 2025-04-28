@@ -12,6 +12,14 @@ app.use(morgan("dev")); // Middleware para registrar las peticiones HTTP en la c
 app.use(express.json()); // Middleware para parsear el cuerpo de las peticiones en formato JSON
 app.use(cookieParser()); // Middleware para parsear las cookies de las peticiones
 
+// 🔥 Agrega este pequeño middleware
+app.use((req, res, next) => {
+  if (req.body === undefined) {
+    req.body = {};
+  }
+  next();
+});
+
 app.use("/api", authRoutes);
 app.use("/api", tasksRoutes);
 
