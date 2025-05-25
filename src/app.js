@@ -12,6 +12,7 @@ const app = express();
 app.use(
   cors({
     origin: "http://localhost:5173",
+    credentials: true, // Permitir el envío de cookies
   })
 ); // Para que todos los dominios puedan comunicar con el servidor
 app.use(morgan("dev")); // Middleware para registrar las peticiones HTTP en la consola
