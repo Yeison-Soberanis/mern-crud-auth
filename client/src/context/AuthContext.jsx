@@ -48,8 +48,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  //funcion para eliminar los mensajes de error pasado un tiempo
+  // funcion para cerrar sesión
+  const logout = () => {
+    Cookies.remove("token");
+    setIsAuthenticated(false);
+    setUser(null);
+  };
 
+  //funcion para eliminar los mensajes de error pasado un tiempo
   useEffect(() => {
     if (errors.length > 0) {
       const timer = setTimeout(() => {
@@ -94,6 +100,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         signup, // Register
         signin, // Login
+        logout, // Logout
         loading,
         user,
         isAuthenticated,
